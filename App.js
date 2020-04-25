@@ -1,61 +1,15 @@
-import React from 'react';
-import {SectionList, StyleSheet, Text, View} from 'react-native';
+import React, { Component } from 'react';
+import { View } from 'react-native';
 
-export default (SectionListBasics = () => {
-  return (
-    <View style={styles.container}>
-      <SectionList
-        sections={[
-          {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
-          {
-            title: 'J',
-            data: [
-              'Jackson',
-              'James',
-              'Jillian',
-              'Jimmy',
-              'Joel',
-              'John',
-              'Julie',
-              'Mulie',
-              'Kulie',
-              'Lulie',
-              'Sulie',
-              'Rulie',
-              'Tulie',
-              'Yulie',
-              'Hulie',
-              'Nulie',
-            ],
-          },
-        ]}
-        renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
-        renderSectionHeader={({section}) => (
-          <Text style={styles.sectionHeader}>{section.title}</Text>
-        )}
-        keyExtractor={(item, index) => index}
-      />
-    </View>
-  );
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 22,
-  },
-  sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: '#a9a9a9',
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-  },
-});
+export default function FlexDimensionsBasics() {
+    return (
+      // Try removing the `flex: 1` on the parent View.
+      // The parent will not have dimensions, so the children can't expand.
+      // What if you add `height: 300` instead of `flex: 1`?
+      <View style= {{height: 300}}>
+        <View style={{flex: 1, backgroundColor: 'powderblue'}} />
+        <View style={{flex: 2, backgroundColor: 'skyblue'}} />
+        <View style={{flex: 3, backgroundColor: 'steelblue'}} />
+      </View>
+    );
+}
